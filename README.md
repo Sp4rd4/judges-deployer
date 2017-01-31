@@ -1,7 +1,7 @@
 Scheduled deployment of judges and webhook for redeployment
 =========================
 
-## Setup:
+### Setup:
 On dokku server:
 ```
 dokku apps:create autodeploy
@@ -11,6 +11,7 @@ dokku docker-options:add autodeploy build '--build-arg SECRET_TOKEN=123 --build-
 
 Set dokku user crontab as [next](dokku_crontab)
 
+### Usage:
 To trigger the redeploy webhook you need POST host:9000/hooks/redeploy with any body and header `X-Signature` that contains HMAC-sha1 of body.
 To get this header content for specific body and secret you can execute next ruby code:
 ```
