@@ -17,11 +17,7 @@ RUN         set -ex && \
             sed -i "s|STEWARD_TOKEN|$STEWARD_TOKEN|g" /deploy.sh && \
             sed -i "s|STEWARD_JOB|$STEWARD_JOB|g" /deploy.sh &&\
             mkdir /judges && \
-            rm -rf /tmp/*
-
-VOLUME      /judges
-
-RUN         curl -L -o /tmp/file.tar.gz https://github.com/automaidan/judges/archive/master.tar.gz && \
+            curl -L -o /tmp/file.tar.gz https://github.com/automaidan/judges/archive/master.tar.gz && \
             tar -xzf /tmp/file.tar.gz -C /judges && \
             rm -rf /tmp/*
 
