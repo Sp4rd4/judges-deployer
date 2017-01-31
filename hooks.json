@@ -1,0 +1,20 @@
+[
+  {
+    "id": "redeploy",
+    "execute-command": "/deploy.sh",
+    "response-message": "Redeploying",
+    "trigger-rule":
+    {
+      "match":
+      {
+        "type": "payload-hash-sha1",
+        "secret": "SECRET_TOKEN",
+        "parameter":
+        {
+          "source": "header",
+          "name": "X-Signature"
+        }
+      }
+    }
+  }
+]
