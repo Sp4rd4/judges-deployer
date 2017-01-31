@@ -17,6 +17,6 @@ SHELL=/bin/bash
 
 
 # sends out our email alerts to users
-0 4 * * * dokku dokku ps:scale deployer cron=1 && dokku enter deployer cron /deploy.sh && dokku ps:scale deployer cron=0
+0 4 * * * dokku dokku ps:scale autodeployer cron=1 && dokku enter autodeployer cron /deploy.sh && dokku ps:scale autodeployer cron=0
 
 ### PLACE ALL CRON TASKS ABOVE, DO NOT REMOVE THE WHITESPACE AFTER THIS LINE
