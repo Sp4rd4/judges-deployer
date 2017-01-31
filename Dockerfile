@@ -17,10 +17,9 @@ RUN         set -ex && \
             sed -i "s|STEWARD_TOKEN|$STEWARD_TOKEN|g" /deploy.sh && \
             sed -i "s|STEWARD_JOB|$STEWARD_JOB|g" /deploy.sh &&\
             mkdir /judges && \
-            cd /judges && \
-            curl -sS https://github.com/automaidan/judges/archive/master.zip > file.zip && \
-            unzip file.zip && \
-            rm file.zip
+            curl -L -o /tmp/file.tar.gz https://github.com/automaidan/judges/archive/master.tar.gz && \
+            tar -xvzf /tmp/file.tar.gz -C /judges && \
+            rm -rf /tmp/*
 
 VOLUME      /judges
 EXPOSE      9000
