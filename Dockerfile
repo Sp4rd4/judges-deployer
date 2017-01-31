@@ -16,9 +16,9 @@ RUN         set -ex && \
             sed -i "s|SECRET_TOKEN|$SECRET_TOKEN|" /hooks.json && \
             sed -i "s|STEWARD_TOKEN|$STEWARD_TOKEN|g" /deploy.sh && \
             sed -i "s|STEWARD_JOB|$STEWARD_JOB|g" /deploy.sh &&\
-            mkdir /judges && \
             curl -L -o /tmp/file.tar.gz https://github.com/automaidan/judges/archive/master.tar.gz && \
-            tar -xzf /tmp/file.tar.gz -C /judges && \
+            tar -xzf /tmp/file.tar.gz && \
+            mv /judges-master /judges && \
             rm -rf /tmp/*
 
 EXPOSE      9000
